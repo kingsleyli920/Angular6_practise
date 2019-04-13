@@ -13,6 +13,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSliderModule } from '@angular/material/slider';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -32,6 +34,10 @@ import { LeaderService} from './services/leader.service';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { LoginComponent } from './login/login.component';
 
+import { HttpClientModule } from '@angular/common/http';
+import { baseURL } from './shared/baseurl';
+
+import { ProcessHTTPMsgService } from './services/process-httpmsg.service'
 
 @NgModule({
   declarations: [
@@ -63,12 +69,17 @@ import { LoginComponent } from './login/login.component';
     MatCheckboxModule,
     ReactiveFormsModule,
     MatSelectModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatProgressSpinnerModule,
+    MatSliderModule,
+    HttpClientModule,
   ],
   entryComponents:[
     LoginComponent
   ],
-  providers: [DishService, PromotionService,LeaderService],
+  providers: [DishService, PromotionService,LeaderService, ProcessHTTPMsgService,
+    {provide: 'BaseURL', useValue: baseURL}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
