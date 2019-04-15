@@ -4,7 +4,7 @@
     <mat-spinner></mat-spinner>
     <h4>Loading...Please Wait</h4>
   </div>
-  <div fxFlex="40" *ngIf="dish">
+  <div fxFlex="40" *ngIf="dish" [@visibility]="visibility" [@expand]>
     <p>
       <mat-card>
         <mat-card-header>
@@ -33,7 +33,7 @@
     </p>
   </div>
 
-  <div fxFlex="40" fxLayoutAlign="start center" *ngIf="dish">
+  <div fxFlex="40" fxLayoutAlign="start center" *ngIf="dish" [@visibility]="visibility" [@expand]>
     <mat-list>
       <h1 mat-header>Comments</h1>
       <mat-list-item *ngFor="let comment of dish.comments">
